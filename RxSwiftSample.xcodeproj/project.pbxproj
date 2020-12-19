@@ -26,6 +26,7 @@
 		5FACF4BC258B49D2000C025F /* GitHubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACF4BB258B49D2000C025F /* GitHubModel.swift */; };
 		5FACF4C5258B5A50000C025F /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACF4C4258B5A4F000C025F /* GitHubAPI.swift */; };
 		5FACF4DE258BA95B000C025F /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACF4DD258BA95B000C025F /* Array+.swift */; };
+		5FACF558258E4A21000C025F /* MvvmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACF557258E4A21000C025F /* MvvmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		5FACF4BB258B49D2000C025F /* GitHubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubModel.swift; sourceTree = "<group>"; };
 		5FACF4C4258B5A4F000C025F /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		5FACF4DD258BA95B000C025F /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		5FACF557258E4A21000C025F /* MvvmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MvvmViewModel.swift; sourceTree = "<group>"; };
 		6286CF0193AE1C3F988AE156 /* Pods-RxSwiftSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftSampleTests/Pods-RxSwiftSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6DBE53B4C1660C93A39985AB /* Pods-RxSwiftSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftSample.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftSample/Pods-RxSwiftSample.debug.xcconfig"; sourceTree = "<group>"; };
 		8DF4005DE579AC12663CCBCD /* Pods_RxSwiftSample_RxSwiftSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSample_RxSwiftSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 				5FACF4BA258B49BC000C025F /* Model */,
 				5FACF4B2258B4382000C025F /* View */,
 				5FACF483258B34D1000C025F /* Controller */,
+				5FACF556258E4A04000C025F /* ViewModel */,
 				5FACF44D258B3339000C025F /* AppDelegate.swift */,
 				5FACF44F258B3339000C025F /* SceneDelegate.swift */,
 				5FACF453258B3339000C025F /* Main.storyboard */,
@@ -211,6 +214,14 @@
 				5FACF4DD258BA95B000C025F /* Array+.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		5FACF556258E4A04000C025F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5FACF557258E4A21000C025F /* MvvmViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8CF03F077CEDEBCA36851807 /* Frameworks */ = {
@@ -484,6 +495,7 @@
 				5FACF4B5258B4399000C025F /* TableViewCell.swift in Sources */,
 				5FACF4DE258BA95B000C025F /* Array+.swift in Sources */,
 				5FACF4BC258B49D2000C025F /* GitHubModel.swift in Sources */,
+				5FACF558258E4A21000C025F /* MvvmViewModel.swift in Sources */,
 				5FACF450258B3339000C025F /* SceneDelegate.swift in Sources */,
 				5FACF485258B34FA000C025F /* NoRxViewController.swift in Sources */,
 				5FACF4C5258B5A50000C025F /* GitHubAPI.swift in Sources */,
