@@ -6,6 +6,7 @@
 //
 
 import Alamofire
+import RxSwift
 import Foundation
 
 final class GitHubAPI {
@@ -32,5 +33,20 @@ final class GitHubAPI {
                 error?(err)
             }
         }
+    }
+}
+
+// 自作のGitHubAPIクラスのfunctionをRx対応させる
+extension GitHubAPI: ReactiveCompatible {}
+extension Reactive where Base: GitHubAPI {
+    func get(searchWord: String, isDesc: Bool = true) -> Observable<[GitHubModel]> {
+        return Observable.create { observer in
+            GitHubAPI.shared.get(searchWord: searchWord, isDesc: isDesc, success: { models in
+                observer.on(.next(models))
+            }, error: { err in
+                observer.on(.error(err))
+            })
+            return Disposables.create()
+        }.share(replay: 1, scope: .whileConnected)
     }
 }
