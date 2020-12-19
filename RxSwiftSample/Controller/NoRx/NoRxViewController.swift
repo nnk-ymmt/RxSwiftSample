@@ -27,7 +27,7 @@ final class NoRxViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 
-    @objc func textFieldDidChange(_ textField: UITextField) {
+    @objc private func textFieldDidChange(_ textField: UITextField) {
         guard let searchWord = textField.text, !searchWord.isEmpty,
               searchWord != previousText, Date().timeIntervalSince(startTime) > 0.3 else { return }
         let isDesc = segmentedControl.selectedSegmentIndex == 0
@@ -43,18 +43,17 @@ final class NoRxViewController: UIViewController {
         }, error: nil)
     }
 
-    @IBAction func changeSortType(_ sender: UISegmentedControl) {
+    @IBAction private func changeSortType(_ sender: UISegmentedControl) {
         guard let searchWord = textField.text, !searchWord.isEmpty,
               Date().timeIntervalSince(startTime) > 0.3 else { return }
         let isDesc = segmentedControl.selectedSegmentIndex == 0
         reload(searchWord: searchWord, isDesc: isDesc)
-        
     }
 }
 
 extension NoRxViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return responseData.count
+        return responseData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
