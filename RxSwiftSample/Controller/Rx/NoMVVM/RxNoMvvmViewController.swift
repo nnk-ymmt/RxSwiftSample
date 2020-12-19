@@ -6,7 +6,6 @@
 //
 
 import NSObject_Rx
-import RxCocoa
 import RxOptional
 import RxSwift
 import UIKit
@@ -51,26 +50,26 @@ final class RxNoMvvmViewController: UIViewController, HasDisposeBag {
             print(error.localizedDescription)
         }).disposed(by: disposeBag)
 
-        // この書き方だとUITableViewDataSourceがいらなくなる
-        getAPIObservable.subscribeOn(MainScheduler.instance)
-            .bind(to: self.tableView.rx.items(cellIdentifier: TableViewCell.reuseIdentifier, cellType: TableViewCell.self)) { _, element, cell in
-                guard let cell = cell as? TableViewCell else { return }
-                cell.configure(gitHubModel: element)
-            }.disposed(by: disposeBag)
+        // この書き方だとUITableViewDataSourceがいらなくなるが警告が出る
+//        getAPIObservable.subscribeOn(MainScheduler.instance)
+//            .bind(to: self.tableView.rx.items(cellIdentifier: TableViewCell.reuseIdentifier, cellType: TableViewCell.self)) { _, element, cell in
+//                guard let cell = cell as? TableViewCell else { return }
+//                cell.configure(gitHubModel: element)
+//            }.disposed(by: disposeBag)
     }
 }
 
 // UITableViewDataSourceをoutletで繋げる
-//extension RxNoMvvmViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return responseData.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let gitHubModel = responseData[safe: indexPath.item],
-//            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell
-//        else { return UITableViewCell() }
-//        cell.configure(gitHubModel: gitHubModel)
-//        return cell
-//    }
-//}
+extension RxNoMvvmViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return responseData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let gitHubModel = responseData[safe: indexPath.item],
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell
+        else { return UITableViewCell() }
+        cell.configure(gitHubModel: gitHubModel)
+        return cell
+    }
+}
