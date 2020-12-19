@@ -52,6 +52,9 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ba3-Pb-ubd">
                                         <rect key="frame" x="0.0" y="223.5" width="414" height="618.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="reA-2G-qEa" id="qSO-D0-ic3"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                             </stackView>

@@ -46,7 +46,7 @@ final class RxMvvmViewController: UIViewController, HasDisposeBag {
         ).map { $0 == 0 }
 
         // inputのプロパティと繋げる(bindはそのまま値をストリームに流す)
-        searchWordObservable.bind(to: input.searchTextObserver).disposed(by: disposeBag)
+        searchWordObservable.bind(to: input.searchWordObserver).disposed(by: disposeBag)
         sortTypeObservable.bind(to: input.sortTypeObserver).disposed(by: disposeBag)
     }
 
@@ -68,10 +68,10 @@ extension RxMvvmViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let githubModel = output.models[safe: indexPath.item],
+        guard let gitHubModel = output.models[safe: indexPath.item],
               let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell
         else { return UITableViewCell() }
-        cell.configure(gitHubModel: githubModel)
+        cell.configure(gitHubModel: gitHubModel)
         return cell
     }
 }
