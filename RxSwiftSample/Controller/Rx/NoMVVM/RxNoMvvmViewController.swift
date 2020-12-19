@@ -60,6 +60,7 @@ final class RxNoMvvmViewController: UIViewController, HasDisposeBag {
     }
 }
 
+// UITableViewDataSourceをoutletで繋げる
 //extension RxNoMvvmViewController: UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return responseData.count
